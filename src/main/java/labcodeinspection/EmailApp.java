@@ -24,13 +24,13 @@ public class EmailApp {
 		email.showInfo();
 	}
 	
-	private String randomPassword(int length) {
+	private char[] randomPassword(int length) { //NOPMD
 		String set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#$&@*";
 		char[] password = new char[length];
 		for (int i = 0; i < length; i++) {
 			int rand = (int) (Math.random() * set.length());
 			password[i] = set.charAt(rand);
 		}
-		return new String(password);
+		return password;
 	}
 }

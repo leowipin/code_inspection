@@ -2,11 +2,11 @@ package labcodeinspection;
 
 public class Email {
 
-	private String m_firstName;
-	private String m_lastName;
-	private String password = null;
+	private final String m_firstName;
+	private final String m_lastName;
+	private String password = null; //NOPMD
 	private String department;
-	private int defaultpasswordLength = 8;
+	private final int defaultpasswordLength = 8;
 	private String email;
 
 	public Email(String firstName, String lastName) {
@@ -30,17 +30,19 @@ public class Email {
 		case 3:
 			this.department = "acct";
 			break;
+		default:
+	        break;
 		}
 	}
 
-	private String randomPassword(int length) {
+	private char[] randomPassword(int length) {
 		String set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#$&@*";
 		char[] password = new char[length];
 		for (int i = 0; i < length; i++) {
 			int rand = (int) (Math.random() * set.length());
 			password[i] = set.charAt(rand);
 		}
-		return new String(password);
+		return password;
 	}
 
 	public void generateEmail() {
